@@ -89,7 +89,7 @@ Prérequis : Python 3.13 (version utilisée ; les versions récentes de pandas d
 
 ```bash
 git clone https://github.com/bastaga15/bar-crawl-heavy-drinking.git
-cd bar-crawl-heavy-drinking
+cd ml-heavy-drinking-detection
 python -m venv .venv
 source .venv/bin/activate        # Windows : .venv\Scripts\activate
 pip install -r requirements.txt
