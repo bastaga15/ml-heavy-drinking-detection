@@ -14,7 +14,7 @@
 
 ---
 
-## 🎯 Contexte
+## Contexte
 
 Les épisodes d'alcoolisation massive exposent à des risques immédiats : accidents, comportements dangereux. Les interventions mobiles « juste à temps » supposent de détecter l'ivresse au moment où elle survient, sans action de l'utilisateur. Le smartphone, porté en permanence, offre pour cela un capteur passif : l'accéléromètre.
 
@@ -28,7 +28,7 @@ Les épisodes d'alcoolisation massive exposent à des risques immédiats : accid
   <sub>Même participant, même amplitude : un mouvement régulier à TAC bas, des à-coups à TAC élevé.</sub>
 </p>
 
-## 📊 Jeu de données
+## Jeu de données
 
 - **13 participants** suivis pendant une tournée des bars (mai 2017), sur environ 24 heures.
 - **Accéléromètre du téléphone** (11 iPhone, 2 Android), annoncé à 40 Hz : 14 millions de mesures.
@@ -41,14 +41,14 @@ Les épisodes d'alcoolisation massive exposent à des risques immédiats : accid
 
 L'article de référence, Killian et al. (2019), atteint 77,5 % d'accuracy avec une forêt aléatoire.
 
-## 🛠️ Démarche
+## Démarche
 
 1. **Exploration** : qualité, couverture et cohérence des deux sources. Elle a révélé une panne de capteur, un fichier d'alcoolémie identique pour deux participants et des téléphones échantillonnant entre 22 et 50 Hz.
 2. **Feature engineering** : nettoyage, découpage en 26 306 fenêtres de 10 s étiquetées, 56 features (intensité, forme, régularité du signal, contexte des 5 dernières minutes), normalisées par participant.
 3. **Apprentissage** : comparaison de quatre modèles, chacun évalué sur un participant qu'il n'a jamais vu, face à une référence fondée sur l'activité seule.
 4. **Réglage des hyperparamètres**, puis analyse des erreurs.
 
-## 🏁 Résultats
+## Résultats
 
 | Modèle | AUROC | Exactitude équilibrée | Précision | Rappel |
 |---|---|---|---|---|
@@ -68,7 +68,7 @@ Cependant, ces résultats globaux masquent une limite majeure : la précision du
   <sub>Les erreurs ne se limitent pas aux fenêtres proches du seuil : beaucoup sont des cas francs.</sub>
 </p>
 
-## 🔭 Limites et pistes
+##  Limites et pistes
 
 Ce manque de précision s'explique en grande partie par la qualité et la structure des données. Sur les 19 participants initiaux, seuls 12 présentaient des enregistrements exploitables, et seulement 8 ont effectivement alterné entre sobriété et ivresse au cours du suivi. La position du téléphone (poche, sac, main ou table) et son orientation étaient inconnues, ce qui empêche d'associer les axes d'accélération à une direction de déplacement.
 
@@ -83,7 +83,7 @@ Pistes :
 
 Deux limites de méthode à garder en tête : la normalisation par participant utilise toute sa session, donc elle n'est pas utilisable telle quelle en temps réel, et les hyperparamètres sont réglés sur les mêmes participants que l'évaluation, ce qui rend les scores légèrement optimistes.
 
-## 🚀 Lancer le notebook
+## Lancer le notebook
 
 Prérequis : Python 3.13 (version utilisée ; les versions récentes de pandas demandent au moins 3.11).
 
